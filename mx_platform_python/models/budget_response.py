@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Optional, Union
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 
 class BudgetResponse(BaseModel):
     """

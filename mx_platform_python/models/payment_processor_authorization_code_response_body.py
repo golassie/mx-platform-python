@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.payment_processor_authorization_code_response import PaymentProcessorAuthorizationCodeResponse
 
 class PaymentProcessorAuthorizationCodeResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class PaymentProcessorAuthorizationCodeResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of payment_processor_authorization_code
+        # override the default output from pydantic.v1 by calling `to_dict()` of payment_processor_authorization_code
         if self.payment_processor_authorization_code:
             _dict['payment_processor_authorization_code'] = self.payment_processor_authorization_code.to_dict()
         return _dict

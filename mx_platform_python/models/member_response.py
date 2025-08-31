@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, validator
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, validator
 
 class MemberResponse(BaseModel):
     """

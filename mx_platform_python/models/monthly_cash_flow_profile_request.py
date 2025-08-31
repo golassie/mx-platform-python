@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional, Union
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictFloat, StrictInt
 
 class MonthlyCashFlowProfileRequest(BaseModel):
     """

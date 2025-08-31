@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.credential_request import CredentialRequest
 
 class MemberResumeRequest(BaseModel):
@@ -53,7 +53,7 @@ class MemberResumeRequest(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in challenges (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in challenges (list)
         _items = []
         if self.challenges:
             for _item in self.challenges:

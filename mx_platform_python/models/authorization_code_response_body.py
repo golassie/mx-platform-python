@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.authorization_code_response import AuthorizationCodeResponse
 
 class AuthorizationCodeResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class AuthorizationCodeResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in authorization_code (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in authorization_code (list)
         _items = []
         if self.authorization_code:
             for _item in self.authorization_code:

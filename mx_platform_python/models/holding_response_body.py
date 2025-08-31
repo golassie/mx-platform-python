@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.holding_response import HoldingResponse
 
 class HoldingResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class HoldingResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of holding
+        # override the default output from pydantic.v1 by calling `to_dict()` of holding
         if self.holding:
             _dict['holding'] = self.holding.to_dict()
         return _dict

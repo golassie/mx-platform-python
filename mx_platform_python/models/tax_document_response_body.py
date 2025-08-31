@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.tax_document_response import TaxDocumentResponse
 
 class TaxDocumentResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class TaxDocumentResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of tax_document
+        # override the default output from pydantic.v1 by calling `to_dict()` of tax_document
         if self.tax_document:
             _dict['tax_document'] = self.tax_document.to_dict()
         return _dict

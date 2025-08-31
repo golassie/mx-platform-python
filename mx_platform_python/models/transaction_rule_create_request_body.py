@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.transaction_rule_create_request import TransactionRuleCreateRequest
 
 class TransactionRuleCreateRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class TransactionRuleCreateRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of transaction_rule
+        # override the default output from pydantic.v1 by calling `to_dict()` of transaction_rule
         if self.transaction_rule:
             _dict['transaction_rule'] = self.transaction_rule.to_dict()
         return _dict

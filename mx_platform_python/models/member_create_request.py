@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist
 from mx_platform_python.models.credential_request import CredentialRequest
 
 class MemberCreateRequest(BaseModel):
@@ -59,7 +59,7 @@ class MemberCreateRequest(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in credentials (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in credentials (list)
         _items = []
         if self.credentials:
             for _item in self.credentials:

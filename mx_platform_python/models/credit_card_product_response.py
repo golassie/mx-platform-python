@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.credit_card_product import CreditCardProduct
 
 class CreditCardProductResponse(BaseModel):
@@ -53,7 +53,7 @@ class CreditCardProductResponse(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of credit_card_product
+        # override the default output from pydantic.v1 by calling `to_dict()` of credit_card_product
         if self.credit_card_product:
             _dict['credit_card_product'] = self.credit_card_product.to_dict()
         return _dict

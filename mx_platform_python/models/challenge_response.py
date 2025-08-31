@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, StrictStr, conlist
+from pydantic.v1 import BaseModel, StrictStr, conlist
 from mx_platform_python.models.image_option_response import ImageOptionResponse
 from mx_platform_python.models.option_response import OptionResponse
 
@@ -60,14 +60,14 @@ class ChallengeResponse(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in image_options (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in image_options (list)
         _items = []
         if self.image_options:
             for _item in self.image_options:
                 if _item:
                     _items.append(_item.to_dict())
             _dict['image_options'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in options (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in options (list)
         _items = []
         if self.options:
             for _item in self.options:

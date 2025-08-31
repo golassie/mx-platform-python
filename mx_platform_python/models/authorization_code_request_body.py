@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.authorization_code_request import AuthorizationCodeRequest
 
 class AuthorizationCodeRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class AuthorizationCodeRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of authorization_code
+        # override the default output from pydantic.v1 by calling `to_dict()` of authorization_code
         if self.authorization_code:
             _dict['authorization_code'] = self.authorization_code.to_dict()
         return _dict

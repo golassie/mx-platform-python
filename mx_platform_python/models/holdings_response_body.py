@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.holding_response import HoldingResponse
 from mx_platform_python.models.pagination_response import PaginationResponse
 
@@ -55,14 +55,14 @@ class HoldingsResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in holdings (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in holdings (list)
         _items = []
         if self.holdings:
             for _item in self.holdings:
                 if _item:
                     _items.append(_item.to_dict())
             _dict['holdings'] = _items
-        # override the default output from pydantic by calling `to_dict()` of pagination
+        # override the default output from pydantic.v1 by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
         return _dict

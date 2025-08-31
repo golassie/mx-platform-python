@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.reward_response import RewardResponse
 
 class RewardResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class RewardResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of reward
+        # override the default output from pydantic.v1 by calling `to_dict()` of reward
         if self.reward:
             _dict['reward'] = self.reward.to_dict()
         return _dict

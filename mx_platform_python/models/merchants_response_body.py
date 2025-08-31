@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.merchant_response import MerchantResponse
 from mx_platform_python.models.pagination_response import PaginationResponse
 
@@ -55,14 +55,14 @@ class MerchantsResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in merchants (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in merchants (list)
         _items = []
         if self.merchants:
             for _item in self.merchants:
                 if _item:
                     _items.append(_item.to_dict())
             _dict['merchants'] = _items
-        # override the default output from pydantic by calling `to_dict()` of pagination
+        # override the default output from pydantic.v1 by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
         return _dict

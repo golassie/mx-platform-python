@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.managed_account_update_request import ManagedAccountUpdateRequest
 
 class ManagedAccountUpdateRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class ManagedAccountUpdateRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of account
+        # override the default output from pydantic.v1 by calling `to_dict()` of account
         if self.account:
             _dict['account'] = self.account.to_dict()
         return _dict

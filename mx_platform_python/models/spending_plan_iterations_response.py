@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.pagination_response import PaginationResponse
 from mx_platform_python.models.spending_plan_iteration_response import SpendingPlanIterationResponse
 
@@ -55,14 +55,14 @@ class SpendingPlanIterationsResponse(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in iterations (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in iterations (list)
         _items = []
         if self.iterations:
             for _item in self.iterations:
                 if _item:
                     _items.append(_item.to_dict())
             _dict['iterations'] = _items
-        # override the default output from pydantic by calling `to_dict()` of pagination
+        # override the default output from pydantic.v1 by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
         return _dict

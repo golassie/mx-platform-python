@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.merchant_location_response import MerchantLocationResponse
 
 class MerchantLocationResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class MerchantLocationResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of merchant_location
+        # override the default output from pydantic.v1 by calling `to_dict()` of merchant_location
         if self.merchant_location:
             _dict['merchant_location'] = self.merchant_location.to_dict()
         return _dict

@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.account_response import AccountResponse
 from mx_platform_python.models.pagination_response import PaginationResponse
 
@@ -55,14 +55,14 @@ class AccountsResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in accounts (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in accounts (list)
         _items = []
         if self.accounts:
             for _item in self.accounts:
                 if _item:
                     _items.append(_item.to_dict())
             _dict['accounts'] = _items
-        # override the default output from pydantic by calling `to_dict()` of pagination
+        # override the default output from pydantic.v1 by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
         return _dict

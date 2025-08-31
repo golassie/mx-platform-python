@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.goal_response import GoalResponse
 
 class GoalResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class GoalResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of goal
+        # override the default output from pydantic.v1 by calling `to_dict()` of goal
         if self.goal:
             _dict['goal'] = self.goal.to_dict()
         return _dict

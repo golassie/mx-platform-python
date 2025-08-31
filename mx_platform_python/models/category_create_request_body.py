@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.category_create_request import CategoryCreateRequest
 
 class CategoryCreateRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class CategoryCreateRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of category
+        # override the default output from pydantic.v1 by calling `to_dict()` of category
         if self.category:
             _dict['category'] = self.category.to_dict()
         return _dict

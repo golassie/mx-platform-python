@@ -19,7 +19,7 @@ import json
 
 
 
-from pydantic import BaseModel, Field
+from pydantic.v1 import BaseModel, Field
 from mx_platform_python.models.split_transaction_request import SplitTransactionRequest
 
 class SplitTransactionRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class SplitTransactionRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of transactions
+        # override the default output from pydantic.v1 by calling `to_dict()` of transactions
         if self.transactions:
             _dict['transactions'] = self.transactions.to_dict()
         return _dict

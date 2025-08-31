@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.microdeposit_verify_request import MicrodepositVerifyRequest
 
 class MicrodepositVerifyRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class MicrodepositVerifyRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of micro_deposit
+        # override the default output from pydantic.v1 by calling `to_dict()` of micro_deposit
         if self.micro_deposit:
             _dict['micro_deposit'] = self.micro_deposit.to_dict()
         return _dict

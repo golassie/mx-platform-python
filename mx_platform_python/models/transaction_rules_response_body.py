@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.pagination_response import PaginationResponse
 from mx_platform_python.models.transaction_rule_response import TransactionRuleResponse
 
@@ -55,10 +55,10 @@ class TransactionRulesResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of pagination
+        # override the default output from pydantic.v1 by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in transaction_rules (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in transaction_rules (list)
         _items = []
         if self.transaction_rules:
             for _item in self.transaction_rules:

@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic.v1 import BaseModel, StrictBool, StrictStr
 
 class InsightResponse(BaseModel):
     """

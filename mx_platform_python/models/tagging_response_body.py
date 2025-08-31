@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.tagging_response import TaggingResponse
 
 class TaggingResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class TaggingResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of tagging
+        # override the default output from pydantic.v1 by calling `to_dict()` of tagging
         if self.tagging:
             _dict['tagging'] = self.tagging.to_dict()
         return _dict

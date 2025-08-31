@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic.v1 import BaseModel, StrictBool, StrictStr
 from mx_platform_python.models.member_create_request import MemberCreateRequest
 
 class MemberCreateRequestBody(BaseModel):
@@ -57,7 +57,7 @@ class MemberCreateRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of member
+        # override the default output from pydantic.v1 by calling `to_dict()` of member
         if self.member:
             _dict['member'] = self.member.to_dict()
         return _dict

@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.monthly_cash_flow_profile_request import MonthlyCashFlowProfileRequest
 
 class MonthlyCashFlowProfileRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class MonthlyCashFlowProfileRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of institution
+        # override the default output from pydantic.v1 by calling `to_dict()` of institution
         if self.institution:
             _dict['institution'] = self.institution.to_dict()
         return _dict

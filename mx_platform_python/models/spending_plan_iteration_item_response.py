@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional, Union
-from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr, conlist
+from pydantic.v1 import BaseModel, StrictFloat, StrictInt, StrictStr, conlist
 
 class SpendingPlanIterationItemResponse(BaseModel):
     """

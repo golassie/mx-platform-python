@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.insight_response import InsightResponse
 
 class InsightResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class InsightResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in insight (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in insight (list)
         _items = []
         if self.insight:
             for _item in self.insight:

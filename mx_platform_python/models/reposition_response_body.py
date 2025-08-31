@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.goals_response import GoalsResponse
 
 class RepositionResponseBody(BaseModel):
@@ -53,7 +53,7 @@ class RepositionResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in goals (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in goals (list)
         _items = []
         if self.goals:
             for _item in self.goals:

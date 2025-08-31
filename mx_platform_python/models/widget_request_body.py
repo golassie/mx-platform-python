@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.widget_request import WidgetRequest
 
 class WidgetRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class WidgetRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of widget_url
+        # override the default output from pydantic.v1 by calling `to_dict()` of widget_url
         if self.widget_url:
             _dict['widget_url'] = self.widget_url.to_dict()
         return _dict

@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.connect_widget_request import ConnectWidgetRequest
 
 class ConnectWidgetRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class ConnectWidgetRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of config
+        # override the default output from pydantic.v1 by calling `to_dict()` of config
         if self.config:
             _dict['config'] = self.config.to_dict()
         return _dict

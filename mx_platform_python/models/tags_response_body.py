@@ -19,7 +19,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic.v1 import BaseModel, conlist
 from mx_platform_python.models.pagination_response import PaginationResponse
 from mx_platform_python.models.tag_response import TagResponse
 
@@ -55,10 +55,10 @@ class TagsResponseBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of pagination
+        # override the default output from pydantic.v1 by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
+        # override the default output from pydantic.v1 by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
             for _item in self.tags:

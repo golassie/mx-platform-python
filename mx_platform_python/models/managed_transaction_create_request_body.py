@@ -19,7 +19,7 @@ import json
 
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from mx_platform_python.models.managed_transaction_create_request import ManagedTransactionCreateRequest
 
 class ManagedTransactionCreateRequestBody(BaseModel):
@@ -53,7 +53,7 @@ class ManagedTransactionCreateRequestBody(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of transaction
+        # override the default output from pydantic.v1 by calling `to_dict()` of transaction
         if self.transaction:
             _dict['transaction'] = self.transaction.to_dict()
         return _dict
