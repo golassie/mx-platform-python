@@ -3,6 +3,7 @@
 - Bump `pydantic` to `v2`
 - Change `from pydantic` to `from pydantic.v1`
 - Run tests via `tox`
+- Note that `pydantic` migration codemod did not work out of the box :)
 
 # Original README
 *This project is currently in **Beta**. Please open up an issue [here](https://github.com/mxenabled/mx-platform-python/issues) to report issues using the MX Platform Python library.*
